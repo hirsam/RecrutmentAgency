@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Result</title>
+</head>
+<body>
+<table border="2" style='display:inline'>
+    <tr>
+        <th>Vacancy name</th>
+        <th>Needed skills</th>
+        <th>Salary range</th>
+        <th>There is social package</th>
+    </tr>
+    <tr th:each="vacancy : ${vacancies}">
+        <td th:text="${vacancy.name}"></td>
+        <td th:text="${vacancy.desiredApplicantSkills}"></td>
+        <td th:text="${vacancy.lowerWageLimit} + ' - ' + ${vacancy.upperWageLimit}"></td>
+        <td th:if="${vacancy.socialPackage} == true" th:text="Yes"></td>
+        <td th:if="${vacancy.socialPackage} == false" th:text="No"></td>
+        <td>
+        <form style='display:inline' th:action="@{/applicant/respond/{id}(id=${vacancy.id})}" method="post">
+        <input type="submit" value="Respond"/>
+        </form>
+        </td>
+    </tr>
+</table>
+<br><br>
+<form th:action="@{/applicant/applicantHomePage}" method="get">
+    <input type="submit" value="Back"/>
+</form>
+</body>
+</html>

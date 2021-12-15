@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create application</title>
+</head>
+<body>
+<h3>Fill the following gaps:</h3>
+<br>
+<form action="/employee/createApplication" method="post">
+    <div><label> Position name: <input type="text" name="name"/> </label></div>
+    <br>
+    <div><label> Desired professional skills: <input type="text" name="desiredApplicantSkills"/> </label></div>
+    <br>
+    <div><label> Upper wage limit: <input type="text" name="lowerWageLimit"/> </label></div>
+    <br>
+    <div><label> Lower wage limit: <input type="text" name="upperWageLimit"/> </label></div>
+    <br>
+    <input type="radio" name="socialPackage" value="true">
+    <label>Yes</label>
+    <input type="radio" name="socialPackage" value="false">
+    <label>No</label>
+    <br><br>
+    <div><input type="submit" value="Create application"/></div>
+</form>
+</body>
+</html>

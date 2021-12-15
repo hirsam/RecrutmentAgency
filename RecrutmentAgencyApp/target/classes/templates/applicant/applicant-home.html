@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Applicant</title>
+</head>
+<body>
+<h3>
+    <table border="3">
+        <th>
+<span th:text="${user?.username}?:''"/>
+<span th:text="${user?.email}?:''"/>
+<span th:text="${user?.phone}?:''"/>
+        </th>
+    </table>
+</h3>
+<br><br>
+<h2>CV Application</h2>
+<table>
+    <tr>
+    <th>Skills</th>
+    <th>Passport series</th>
+    <th>Passport number</th>
+    <th>Salary expectations</th>
+    </tr>
+    <tr>
+        <td th:text="${cv?.skills}?: ''"></td>
+        <td th:text="${cv?.passportSeries}?: ''"></td>
+        <td th:text="${cv?.passportNumber}?: ''"></td>
+        <td th:text="${cv?.expectedSalary}?: ''"></td>
+    </tr>
+</table>
+<br>
+<form style='display:inline' th:action="@{/applicant/addCV}" method="get">
+    <input type="submit" value="Add CV to base"/>
+</form>
+<form style='display:inline' th:action="@{/applicant/findVacancy}" method="post">
+    <input type="submit" value="Find vacancy"/>
+</form>
+<br><br>
+<form th:action="@{/main}" method="get">
+    <input type="submit" value="Back"/>
+</form>
+<br>
+<form th:action="@{/main/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
+
+</body>
+</html>

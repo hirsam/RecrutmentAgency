@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Main</title>
+</head>
+<body>
+<div sec:authorize="hasAuthority('APPLICANT')" ><a th:href="@{/applicant/applicantHomePage}">Applicant personal area</a></div>
+<br>
+<div sec:authorize="hasAuthority('EMPLOYEE')" > <a th:href="@{/employee/employeeHomePage}">Employee workspace</a></div>
+<br>
+<div sec:authorize="hasAuthority('ADMIN')" > <a th:href="@{/admin/adminHomePage}">Admin workspace</a></div>
+<br><br>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
+</body>
+</html>

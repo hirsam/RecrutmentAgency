@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Admin</title>
+</head>
+<body>
+<h3>
+    <table border="3">
+        <th>
+            <span th:text="${user.username}"/>
+            <span th:text="${user.email}"/>
+            <span th:text="${user.phone}"/>
+        </th>
+    </table>
+</h3>
+<br><br><br>
+<form th:action="@{/admin/createReport}" method="post">
+    <input type="submit" value="Generate a report"/>
+</form>
+<br><br>
+<form th:action="@{/main/applicantHomePage}" method="get">
+    <input type="submit" value="Back"/>
+</form>
+<br>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
+</body>
+</html>

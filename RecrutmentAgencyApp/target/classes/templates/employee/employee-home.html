@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee</title>
+</head>
+<body>
+<h3>
+    <table border="3">
+        <th>
+            <span th:text="${user.username}"/>
+            <span th:text="${user.email}"/>
+            <span th:text="${user.phone}"/>
+        </th>
+    </table>
+</h3>
+<br><br><br>
+
+<table border="2">
+    <tr>
+        <th>Vacancy name</th>
+        <th>Needed skills</th>
+        <th>Salary range</th>
+        <th>There is social package</th>
+    </tr>
+    <tr th:each="vacancy : ${vacancies}">
+        <td th:text="${vacancy.name}"></td>
+        <td th:text="${vacancy.desiredApplicantSkills}"></td>
+        <td th:text="${vacancy.lowerWageLimit} + ' - ' + ${vacancy.upperWageLimit}"></td>
+        <td th:if="${vacancy.socialPackage} == true" th:text="Yes"></td>
+        <td th:if="${vacancy.socialPackage} == false" th:text="No"></td>
+    </tr>
+</table>
+<br>
+<form th:action="@{/employee/createApplication}" method="get">
+    <input type="submit" value="Create an application to search for an employee"/>
+</form>
+<br><br>
+<form th:action="@{/employee/employeeHomePage}" method="post">
+    <input type="submit" value="Back"/>
+</form>
+<br>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Sign Out"/>
+</form>
+</body>
+</html>
